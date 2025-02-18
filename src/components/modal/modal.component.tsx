@@ -10,24 +10,17 @@ interface IModal {
 
 export function Modal({ title, children, isOpen, setIsOpen }: IModal) {
   return (
-    <div>
-      <button className={styles.openButton} onClick={() => setIsOpen(!isOpen)}>
-        Open Modal
-      </button>
-      {isOpen && (
-        <div
-          className={styles.modal}
-          style={{ display: isOpen ? "block" : "none" }}
-        >
-          <div className={styles.modalContent}>
-            <div className={styles.modalHeader}>
-              <h2>{title}</h2>
-              <button onClick={() => setIsOpen(!isOpen)}>Close Modal</button>
-            </div>
-            {children}
-          </div>
+    <div
+      className={styles.modal}
+      style={{ display: isOpen ? "block" : "none" }}
+    >
+      <div className={styles.modalContent}>
+        <div className={styles.modalHeader}>
+          <h2>{title}</h2>
+          <button onClick={() => setIsOpen(!isOpen)}>Close Modal</button>
         </div>
-      )}
+        {children}
+      </div>
     </div>
   );
 }

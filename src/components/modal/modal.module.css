@@ -13,7 +13,6 @@
 
 .modalContent {
   margin: auto;
-  padding: 20px;
   border: 1px solid #888;
   width: 80%;
   background-color: #fefefe;
@@ -21,6 +20,7 @@
 
 .modalHeader {
   display: flex;
+  padding: 10px;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
