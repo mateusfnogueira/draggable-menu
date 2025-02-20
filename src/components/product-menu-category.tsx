@@ -4,21 +4,7 @@ import styles from "../app/page.module.css";
 import { ProductMenuItem } from "./product-menu-item";
 import { Modal } from "./modal/modal.component";
 import { Draggable } from "@hello-pangea/dnd";
-
-interface item {
-  name: string;
-  price: string;
-  description: string;
-}
-
-interface IProductMenuCategory {
-  category: {
-    name: string;
-    id: string;
-    items: item[];
-  };
-  index: number;
-}
+import { IProductMenuCategory, item } from "@/interfaces/product.iterface";
 
 export function ProductMenuCategory({ category, index }: IProductMenuCategory) {
   const [itemsState, setItems] = useState<item[]>(category.items);
@@ -28,6 +14,7 @@ export function ProductMenuCategory({ category, index }: IProductMenuCategory) {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const newItem = {
+      id: Math.random().toString(),
       name: (form[0] as HTMLInputElement).value,
       price: (form[1] as HTMLInputElement).value,
       description: (form[2] as HTMLInputElement).value,
@@ -48,10 +35,10 @@ export function ProductMenuCategory({ category, index }: IProductMenuCategory) {
           <h2>{category.name}</h2>
           {itemsState.map((item, i) => (
             <ProductMenuItem
-              key={i}
-              name={item.name}
-              price={item.price}
-              description={item.description}
+              key={item.id}
+              index={i}
+              item={item}
+              removeItem={(id) => console.log(id)}
             />
           ))}
           <button onClick={() => setIsOpen(true)}>Add item</button>

@@ -1,15 +1,15 @@
+import { item } from "@/interfaces/product.iterface";
 import styles from "../app/page.module.css";
 
 interface IProductMenuItem {
-  name: string;
-  price: string;
-  description: string;
+  item: item;
+  index: number;
+  removeItem: (id: string) => void;
 }
 
 export function ProductMenuItem({
-  name,
-  price,
-  description,
+  item: { name, price, description, id },
+  removeItem,
 }: IProductMenuItem) {
   return (
     <div className={styles.menuItem}>
@@ -18,6 +18,7 @@ export function ProductMenuItem({
         <p>{price}</p>
       </div>
       <p>{description}</p>
+      <button onClick={() => removeItem(id)}>Remove</button>
     </div>
   );
 }
