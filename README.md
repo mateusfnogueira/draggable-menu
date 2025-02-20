@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Draggable Menu
 
-## Getting Started
+Este é um projeto de menu arrastável desenvolvido com React e Next.js. O objetivo do projeto é permitir que os usuários arrastem e soltem categorias e itens dentro de um menu.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [@hello-pangea/dnd](https://github.com/hello-pangea/dnd) (biblioteca de arrastar e soltar)
+- [CSS Modules](https://github.com/css-modules/css-modules)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura do Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/app/layout.tsx`: Layout principal do aplicativo.
+- `src/app/page.tsx`: Página principal do aplicativo.
+- `src/components/product-menu-category.tsx`: Componente de categoria do menu.
+- `src/components/product-menu-item.tsx`: Componente de item do menu.
+- `src/components/modal/modal.component.tsx`: Componente de modal.
+- `src/seeds/menu.seed.ts`: Dados de exemplo para o menu.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Como Rodar o Projeto Localmente
 
-## Learn More
+1. **Clone o repositório:**
 
-To learn more about Next.js, take a look at the following resources:
+   ````bash
+   git clone https://github.com/seu-usuario/draggable-menu.git
+   cd draggable-menu```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ````
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Instale as dependências:**
 
-## Deploy on Vercel
+   ```npm install
+      yarn i
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Inicie o servidor de desenvolvimento:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```npm run dev
+      yarn dev
+   ```
+
+4. **Abra o navegador e acesse:**
+   http://localhost:3000
+
+## Como Executar o deploy
+
+1. **Build do projeto:**
+
+   ```npm run build
+      yarn build
+   ```
+
+2. **Inicie o servidor de produção:**
+
+   ```npm start
+      yarn start
+   ```
+
+3. **Deploy em um serviço e hopedagem:**
+
+- Você pode usar serviços como Vercel, Netlify, ou qualquer outro serviço de hospedagem de sua escolha.
+- Siga as instruções específicas do serviço de hospedagem para fazer o deploy do seu projeto.
