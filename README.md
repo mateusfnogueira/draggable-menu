@@ -31,13 +31,15 @@ Este é um projeto de menu arrastável desenvolvido com React e Next.js. O objet
 
 2. **Instale as dependências:**
 
-   ```npm install
+   ```
+      npm install
       yarn i
    ```
 
 3. **Inicie o servidor de desenvolvimento:**
 
-   ```npm run dev
+   ```
+      npm run dev
       yarn dev
    ```
 
@@ -48,13 +50,15 @@ Este é um projeto de menu arrastável desenvolvido com React e Next.js. O objet
 
 1. **Build do projeto:**
 
-   ```npm run build
+   ```
+      npm run build
       yarn build
    ```
 
 2. **Inicie o servidor de produção:**
 
-   ```npm start
+   ```
+      npm start
       yarn start
    ```
 
