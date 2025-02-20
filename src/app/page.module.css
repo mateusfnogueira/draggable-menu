@@ -29,6 +29,17 @@
   padding: 1rem;
 }
 
+.category > h2 {
+  font-size: 1.5rem;
+}
+
+.category > article {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .menuItem {
   display: flex;
   flex-direction: column;

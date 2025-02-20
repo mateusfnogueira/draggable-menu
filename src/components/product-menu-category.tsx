@@ -3,7 +3,7 @@ import { FormEvent, useState } from "react";
 import styles from "../app/page.module.css";
 import { ProductMenuItem } from "./product-menu-item";
 import { Modal } from "./modal/modal.component";
-import { Draggable } from "@hello-pangea/dnd";
+import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import { IProductMenuCategory, item } from "@/interfaces/product.iterface";
 
 export function ProductMenuCategory({ category, index }: IProductMenuCategory) {
@@ -23,6 +23,14 @@ export function ProductMenuCategory({ category, index }: IProductMenuCategory) {
     setIsOpen(false);
   }
 
+  function handleDragEnd(result: any) {
+    if (!result.destination) return;
+    const items = Array.from(itemsState);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+    setItems(items);
+  }
+
   return (
     <Draggable draggableId={category.id} index={index}>
       {(provided) => (
@@ -33,14 +41,23 @@ export function ProductMenuCategory({ category, index }: IProductMenuCategory) {
           className={styles.category}
         >
           <h2>{category.name}</h2>
-          {itemsState.map((item, i) => (
-            <ProductMenuItem
-              key={item.id}
-              index={i}
-              item={item}
-              removeItem={(id) => console.log(id)}
-            />
-          ))}
+          <DragDropContext onDragEnd={handleDragEnd}>
+            <Droppable droppableId="items" type="list" direction="vertical">
+              {(provided) => (
+                <article {...provided.droppableProps} ref={provided.innerRef}>
+                  {itemsState.map((item, i) => (
+                    <ProductMenuItem
+                      key={item.id}
+                      index={i}
+                      item={item}
+                      removeItem={(id) => console.log(id)}
+                    />
+                  ))}
+                  {provided.placeholder}
+                </article>
+              )}
+            </Droppable>
+          </DragDropContext>
           <button onClick={() => setIsOpen(true)}>Add item</button>
           <Modal title="Add item" isOpen={isOpen} setIsOpen={setIsOpen}>
             <form className={styles.form} onSubmit={addItem}>
