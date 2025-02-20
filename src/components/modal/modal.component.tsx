@@ -10,10 +10,7 @@ interface IModal {
 
 export function Modal({ title, children, isOpen, setIsOpen }: IModal) {
   return (
-    <div
-      className={styles.modal}
-      style={{ display: isOpen ? "block" : "none" }}
-    >
+    <div className={styles.modal} style={{ display: isOpen ? "flex" : "none" }}>
       <div className={styles.modalContent}>
         <div className={styles.modalHeader}>
           <h2>{title}</h2>

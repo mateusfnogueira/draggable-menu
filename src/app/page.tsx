@@ -31,6 +31,7 @@ export default function Home() {
                     category={category}
                   />
                 ))}
+                {provided.placeholder}
               </article>
             )}
           </Droppable>
