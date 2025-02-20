@@ -23,6 +23,10 @@ export function ProductMenuCategory({ category, index }: IProductMenuCategory) {
     setIsOpen(false);
   }
 
+  function removeItem(id: string) {
+    setItems(itemsState.filter((item) => item.id !== id));
+  }
+
   function handleDragEnd(result: any) {
     if (!result.destination) return;
     const items = Array.from(itemsState);
@@ -50,7 +54,7 @@ export function ProductMenuCategory({ category, index }: IProductMenuCategory) {
                       key={item.id}
                       index={i}
                       item={item}
-                      removeItem={(id) => console.log(id)}
+                      removeItem={removeItem}
                     />
                   ))}
                   {provided.placeholder}
